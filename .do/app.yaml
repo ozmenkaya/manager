@@ -1,0 +1,27 @@
+name: manager
+services:
+- name: web
+  source_dir: /
+  github:
+    repo: ozmenkaya/manager
+    branch: main
+    deploy_on_push: true
+  run_command: npm start
+  build_command: npm run build && npx prisma generate && npx prisma db push
+  environment_slug: node-js
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  envs:
+  - key: DATABASE_URL
+    scope: RUN_AND_BUILD_TIME
+    value: ${db.DATABASE_URL}
+  routes:
+  - path: /
+  health_check:
+    http_path: /
+
+databases:
+- name: db
+  engine: PG
+  version: "15"
+  size: basic-xxs
