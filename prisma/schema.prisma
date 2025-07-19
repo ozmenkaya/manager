@@ -17,6 +17,7 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   tasks     Task[]
+  projects  Project[]
 
   @@map("users")
 }
@@ -40,6 +41,8 @@ model Project {
   description String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
 
   @@map("projects")
 }
