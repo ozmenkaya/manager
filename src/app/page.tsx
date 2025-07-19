@@ -56,6 +56,14 @@ export default function Home() {
             <h3>⚡ Otomatik Deploy</h3>
             <p>DigitalOcean App Platform entegrasyonu</p>
           </div>
+          <div className="feature">
+            <h3>🔗 Webhook</h3>
+            <p>
+              <a href="/webhooks" className="webhook-link">
+                Webhook Dashboard →
+              </a>
+            </p>
+          </div>
         </div>
 
         <div className="tasks-section">

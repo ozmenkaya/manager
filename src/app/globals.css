@@ -160,6 +160,18 @@ body {
   color: #92400e;
 }
 
+.webhook-link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.webhook-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 1rem;

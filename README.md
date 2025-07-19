@@ -1,4 +1,14 @@
-# Epica Manager
+# Ep## Özellikler
+
+- ⚡ Next.js 14 ile modern React uygulaması
+- 🗄️ PostgreSQL database ile Prisma ORM
+- 📱 Responsive tasarım
+- 🚀 TypeScript desteği
+- 🔄 Otomatik deployment (DigitalOcean App Platform)
+- 🎨 Modern UI/UX
+- 📊 RESTful API endpoints
+- 🔗 Webhook entegrasyonu (GitHub & DigitalOcean)
+- 📋 Webhook monitoring dashboarder
 
 Modern yönetim sistemi - epica.com.tr | DigitalOcean App Platform ile otomatik deployment
 
@@ -62,6 +72,27 @@ Bu proje DigitalOcean App Platform için optimize edilmiştir. GitHub'a push yap
 - `POST /api/users` - Yeni kullanıcı oluştur
 - `GET /api/tasks` - Tüm görevleri listele  
 - `POST /api/tasks` - Yeni görev oluştur
+
+### Webhook Endpoints
+
+- `POST /api/webhook` - GitHub webhook events
+- `POST /api/webhook/digitalocean` - DigitalOcean webhook events
+- `GET /api/webhook/status` - Webhook status ve event history
+- `GET /webhooks` - Webhook monitoring dashboard
+
+### Webhook Configuration
+
+#### GitHub Webhook Setup:
+1. GitHub repository → Settings → Webhooks
+2. Add webhook: `https://epica.com.tr/api/webhook`
+3. Content type: `application/json`
+4. Secret: Environment variable `GITHUB_WEBHOOK_SECRET`
+5. Events: Push, Pull requests, Deployments
+
+#### DigitalOcean Webhook Setup:
+1. DigitalOcean App Platform → Settings → Webhooks
+2. Add webhook: `https://epica.com.tr/api/webhook/digitalocean`
+3. Events: Deployment started, completed, failed
 
 ### Database Schema
 

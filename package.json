@@ -19,7 +19,8 @@
     "react-dom": "^18",
     "pg": "^8.11.3",
     "prisma": "^5.7.0",
-    "@prisma/client": "^5.7.0"
+    "@prisma/client": "^5.7.0",
+    "axios": "^1.6.2"
   },
   "devDependencies": {
     "@types/node": "^20",

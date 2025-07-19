@@ -24,6 +24,12 @@ services:
   - key: NODE_ENV
     scope: RUN_AND_BUILD_TIME
     value: production
+  - key: GITHUB_WEBHOOK_SECRET
+    scope: RUN_AND_BUILD_TIME
+    value: ${GITHUB_WEBHOOK_SECRET}
+  - key: DIGITALOCEAN_WEBHOOK_SECRET
+    scope: RUN_AND_BUILD_TIME
+    value: ${DIGITALOCEAN_WEBHOOK_SECRET}
   routes:
   - path: /
   health_check:
