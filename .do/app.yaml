@@ -15,10 +15,22 @@ services:
   - key: DATABASE_URL
     scope: RUN_AND_BUILD_TIME
     value: ${db.DATABASE_URL}
+  - key: NEXTAUTH_URL
+    scope: RUN_AND_BUILD_TIME
+    value: https://epica.com.tr
+  - key: APP_URL
+    scope: RUN_AND_BUILD_TIME
+    value: https://epica.com.tr
+  - key: NODE_ENV
+    scope: RUN_AND_BUILD_TIME
+    value: production
   routes:
   - path: /
   health_check:
     http_path: /
+  domains:
+  - domain: epica.com.tr
+    type: PRIMARY
 
 databases:
 - name: db

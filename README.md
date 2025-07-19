@@ -1,6 +1,6 @@
-# Manager App
+# Epica Manager
 
-Modern yönetim uygulaması - DigitalOcean App Platform ile otomatik deployment
+Modern yönetim sistemi - epica.com.tr | DigitalOcean App Platform ile otomatik deployment
 
 ## Özellikler
 

@@ -40,8 +40,8 @@ export default function Home() {
   return (
     <main className="container">
       <div className="hero">
-        <h1>Manager App</h1>
-        <p>Modern yönetim uygulamanıza hoş geldiniz!</p>
+        <h1>Epica Manager</h1>
+        <p>Modern yönetim sisteminize hoş geldiniz! | epica.com.tr</p>
         
         <div className="features">
           <div className="feature">
@@ -49,7 +49,7 @@ export default function Home() {
             <p>Next.js ile optimize edilmiş performans</p>
           </div>
           <div className="feature">
-            <h3>� Database</h3>
+            <h3>📊 Database</h3>
             <p>PostgreSQL ile güvenli veri yönetimi</p>
           </div>
           <div className="feature">

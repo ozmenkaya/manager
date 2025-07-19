@@ -5,8 +5,30 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Manager App',
-  description: 'Modern yönetim uygulaması',
+  title: 'Epica Manager - Modern Yönetim Sistemi',
+  description: 'Epica.com.tr - Modern ve güçlü yönetim uygulaması. Proje yönetimi, görev takibi ve ekip koordinasyonu.',
+  keywords: 'proje yönetimi, görev takibi, ekip yönetimi, epica, manager',
+  authors: [{ name: 'Epica Team' }],
+  creator: 'Epica',
+  publisher: 'Epica',
+  metadataBase: new URL('https://epica.com.tr'),
+  openGraph: {
+    title: 'Epica Manager - Modern Yönetim Sistemi',
+    description: 'Modern ve güçlü yönetim uygulaması',
+    url: 'https://epica.com.tr',
+    siteName: 'Epica Manager',
+    locale: 'tr_TR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Epica Manager',
+    description: 'Modern yönetim uygulaması',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
