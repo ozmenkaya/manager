@@ -55,16 +55,22 @@ Uygulama [http://localhost:3000](http://localhost:3000) adresinde çalışacak.
 
 Bu proje DigitalOcean App Platform için optimize edilmiştir. GitHub'a push yaptığınızda otomatik olarak deploy edilecek.
 
-### DigitalOcean App Platform Kurulumu
+## 🚀 Auto-Deployment Süreci
 
-1. DigitalOcean hesabınıza giriş yapın
-2. App Platform'u seçin  
-3. GitHub repository'nizi bağlayın
-4. Uygulama otomatik olarak `.do/app.yaml` dosyasını algılayacak
-5. PostgreSQL database otomatik olarak oluşturulup bağlanacak
-6. Environment variables otomatik set edilecek:
-   - `DATABASE_URL` - PostgreSQL bağlantı URL'i
-7. Build ve deploy otomatik başlayacak
+### GitHub → DigitalOcean Pipeline:
+1. **Push to main**: GitHub'a kod push edilir
+2. **Webhook trigger**: GitHub, DigitalOcean'a webhook gönderir
+3. **Build process**: DigitalOcean otomatik build başlatır
+   - `npm install`
+   - `npm run build`
+   - `npx prisma generate`
+   - `npx prisma db push`
+4. **Deploy**: Yeni version epica.com.tr'de live olur
+5. **Notification**: Webhook dashboard'da status görülür
+
+### Monitoring:
+- **Deployment Status**: https://epica.com.tr/deploy
+- **Webhook Dashboard**: https://epica.com.tr/webhooks
 
 ### API Endpoints
 

@@ -53,8 +53,12 @@ export default function Home() {
             <p>PostgreSQL ile güvenli veri yönetimi</p>
           </div>
           <div className="feature">
-            <h3>⚡ Otomatik Deploy</h3>
-            <p>DigitalOcean App Platform entegrasyonu</p>
+            <h3>⚡ Auto Deploy</h3>
+            <p>
+              <a href="/deploy" className="deploy-link">
+                Deployment Status →
+              </a>
+            </p>
           </div>
           <div className="feature">
             <h3>🔗 Webhook</h3>
