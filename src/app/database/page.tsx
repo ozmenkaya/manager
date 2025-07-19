@@ -18,6 +18,7 @@ interface DbStatus {
 export default function DatabaseStatus() {
   const [dbStatus, setDbStatus] = useState<DbStatus | null>(null)
   const [loading, setLoading] = useState(true)
+  const [migrating, setMigrating] = useState(false)
 
   const checkDbStatus = async () => {
     setLoading(true)
@@ -34,6 +35,25 @@ export default function DatabaseStatus() {
       })
     } finally {
       setLoading(false)
+    }
+  }
+
+  const runMigration = async () => {
+    setMigrating(true)
+    try {
+      const response = await fetch('/api/migrate', { method: 'POST' })
+      const data = await response.json()
+      
+      if (response.ok) {
+        alert('✅ Database migration tamamlandı! Tables oluşturuldu.')
+        checkDbStatus() // Status'u yenile
+      } else {
+        alert('❌ Migration hatası: ' + data.message)
+      }
+    } catch (error) {
+      alert('❌ Migration hatası: ' + String(error))
+    } finally {
+      setMigrating(false)
     }
   }
 
@@ -74,6 +94,14 @@ export default function DatabaseStatus() {
           className="refresh-btn"
         >
           {loading ? '🔄 Kontrol ediliyor...' : '🔄 Yeniden Kontrol Et'}
+        </button>
+        
+        <button 
+          onClick={runMigration}
+          disabled={migrating || loading}
+          className="migrate-btn"
+        >
+          {migrating ? '⚙️ Migration çalışıyor...' : '⚙️ Database Migration'}
         </button>
       </div>
 
@@ -173,9 +201,13 @@ export default function DatabaseStatus() {
         .controls {
           text-align: center;
           margin-bottom: 2rem;
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
         }
 
-        .refresh-btn {
+        .refresh-btn, .migrate-btn {
           background: linear-gradient(135deg, #3b82f6, #1d4ed8);
           color: white;
           border: none;
@@ -186,12 +218,20 @@ export default function DatabaseStatus() {
           transition: all 0.2s;
         }
 
-        .refresh-btn:hover:not(:disabled) {
+        .migrate-btn {
+          background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .refresh-btn:hover:not(:disabled), .migrate-btn:hover:not(:disabled) {
           transform: translateY(-2px);
           box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
 
-        .refresh-btn:disabled {
+        .migrate-btn:hover:not(:disabled) {
+          box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .refresh-btn:disabled, .migrate-btn:disabled {
           opacity: 0.7;
           cursor: not-allowed;
         }
